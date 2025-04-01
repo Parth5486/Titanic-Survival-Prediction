@@ -19,7 +19,7 @@ st.write("### Enter Passenger Details Below:")
 col1, col2 = st.columns(2)
 
 with col1:
-    pclass = st.radio("🛳️ Passenger Class", [1, 2, 3], index=2)
+    pclass = st.radio("🛳 Passenger Class", [1, 2, 3], index=2)
     sex = st.selectbox("⚤ Sex", ["Male", "Female"])
     age = st.slider("🎂 Age", 0, 100, 25)
 
@@ -40,8 +40,7 @@ features = np.array([[float(pclass), float(sex_encoded), float(age), float(sibsp
 # Predict button
 if st.button("🚀 Predict"):
     prediction = model.predict(features)  
-    result = "🎉 Survived" if prediction[0] == 1 else "⚠️ Did Not Survive"
+    result = "🎉 Survived" if prediction[0] == 1 else "⚠ Did Not Survive"
     color = "green" if prediction[0] == 1 else "red"
     
     st.markdown(f"<h2 style='text-align: center; color: {color};'>{result}</h2>", unsafe_allow_html=True)
-
